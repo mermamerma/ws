@@ -1,0 +1,53 @@
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=">
+    <META HTTP-EQUIV="Refresh" CONTENT="";>
+    <link href="../imagenes/mppre.ico" type="image/x-icon" rel="SHORTCUT ICON"/>
+    <link href="../estilos/Estilos.css" rel="stylesheet" type="text/css">
+
+
+
+    <script language="JavaScript" type="text/javascript">
+        /* -------------------------------------------------------
+         *  CONFIRMAR ELIMINACION DE REGISTRO DEL FORMULARIOS
+         * -------------------------------------------------------
+         */
+        function doDelete($id, $descripcion) {
+
+            var $valor = '\n\n( ' + $id + ' ) ' + $descripcion;
+
+            //comprueba campo de Usuarios
+            if (!confirm("Esta seguro que desea eliminar este registro : " + $valor))
+            {
+                return false;
+            } else {
+                return true;
+            } // return true para ejecutar la accion del formulario
+        }
+    </script>
+</head>
+<table width="960" align="center" height="99%" border="0" cellpadding="0" cellspacing="0" class="fondo">
+    <tr>
+        <td height="1">
+            <div align="<?= $this->_lib_todos_alinear ?>">
+                <img width="<?= $this->_lib_todos_ancho ?>" height="<?= $this->_lib_todos_alto ?>" border="0" align="top" src="<?= $this->_lib_imagenes_rutas . 'banner/todos.png' ?>">
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td height="1" class="RELOJ">
+            <div align="right" >
+                <?php $this->setReloj(); ?>
+            </div>
+        </td>
+    </tr>
+
+    <tr valign="top">
+        <td height="1">
+            <div align="<?= $this->_lib_banner_alinear ?>">
+                <img  width="<?= $this->_lib_banner_ancho ?>" height="<?= $this->_lib_banner_alto ?>" align="top" src="<?= $this->_lib_imagenes_rutas . 'banner/banner-bottom.png' ?>">
+            </div>
+        </td>
+    </tr>
+</table>
