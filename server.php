@@ -42,4 +42,5 @@ if (isset($HTTP_RAW_POST_DATA)) {
 }else{ 
   $input = implode("rn", file('php://input')); 
 } 
+
 $server->service($input);
