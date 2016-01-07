@@ -11,33 +11,30 @@ $server     = new soap_server;
 $header     = $server->requestHeaders;
 $flag       = doAuthenticate();
 
-
-
 if ($flag == FALSE)
-    $server->fault(401,'Authentication failed!');
-    
+    $server->fault(401,'Authentication failed!'); 
         
 $file = basename($_SERVER['PHP_SELF']);
 $ns="http://{$_SERVER['HTTP_HOST']}/ws/{$file}"; 
 
 $server->configureWSDL("Web Service MPPRE-MPPEUCT",$ns);
 
-
 #$server->soap_defencoding = 'UTF-8';
 #$server->decode_utf8 = false;
 #$server->encode_utf8 = true;
 
+// Include con los Metodos y Tipos de Datos del WS
 require_once('wsdl.php');
-
-
 
 $obj    = new Citas();
 $log    = new LogDao();
+
+// Creamos un Log de  Acceso
 $log->register($header);
 
+// Creamos un Log de Credenciales erradas
 if($flag == FALSE)
     $log->registerBadLogin();
-
 
 //Establecer servicio       
 if (isset($HTTP_RAW_POST_DATA)) { 
